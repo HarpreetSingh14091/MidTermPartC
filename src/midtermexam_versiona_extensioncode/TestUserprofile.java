@@ -15,32 +15,36 @@ public class TestUserprofile {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt user for name
+        // Get user's name
         System.out.print("Enter your name: ");
         String userName = scanner.nextLine();
 
         // Display available genres
-        System.out.println("Choose your favorite genre from the following options:");
-        for (int i = 0; i < UserProfile.genres.length; i++) {
-            System.out.println((i + 1) + ". " + UserProfile.genres[i]);
+        System.out.println("Choose your favorite genre:");
+        String[] genres = {"Comedy", "Drama", "Action", "Mystery"};
+        for (int i = 0; i < genres.length; i++) {
+            System.out.println((i + 1) + ". " + genres[i]);
         }
 
-        // Prompt user for genre choice
+        // Get user's chosen genre
         System.out.print("Enter the number corresponding to your favorite genre: ");
         int genreChoice = scanner.nextInt();
 
         // Validate genre choice
-        if (genreChoice < 1 || genreChoice > UserProfile.genres.length) {
-            System.out.println("Invalid genre choice. Please run the program again and choose a valid genre.");
+        if (genreChoice < 1 || genreChoice > genres.length) {
+            System.out.println("Invalid genre choice. Exiting program.");
             return;
         }
 
-        // Create user profile
-        UserProfile userProfile = new UserProfile(userName, UserProfile.genres[genreChoice - 1]);
+        // Create UserProfile
+        UserProfile userProfile = new UserProfile(userName, genres[genreChoice - 1]);
 
         // Display confirmation message
-        System.out.println("Your userProfile was created:\n" +
-                           "Name: " + userProfile.getUserID() + "\n" +
-                           "Favorite Genre: " + userProfile.getGenre());
+        System.out.println("User Profile created successfully!");
+        System.out.println("UserID: " + userProfile.getUserID());
+        System.out.println("Favorite Genre: " + userProfile.getGenre());
+
+        // Close scanner
+        scanner.close();
     }
 }
