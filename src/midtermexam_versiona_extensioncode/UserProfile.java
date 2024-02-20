@@ -12,6 +12,7 @@ package midtermexam_versiona_extensioncode;
  * Students are reminded to add themselves as modifiers when editing the
  * code.
  * @author dancye, 2019
+ * 20-02-2024 1:03PM
  */
 public class UserProfile 
 {
